@@ -14,39 +14,9 @@ const items = createReducer(initialItems, {
     [actions.removeContact]: (state, { payload }) => state.filter(contact => contact.id !== payload)
 })
 
-// const items = (state = initialItems, { type, payload }) => {
-//     switch (type) {
-//         case types.ADD:
-//             state.map(item => {
-//                 if (payload.name === item.name) {
-//                     return alert(`${item.name} is already in contacts.`)
-//                 } else {
-//                     return [...state, payload]
-//                 }
-//             })
-
-//         case types.DELETE:
-//             return state.filter(contact => contact.id !== payload)
-
-//         default:
-//             return state;
-//     }
-// }
-
-
 const filter = createReducer('', {
     [actions.changeFilter]: (_, { payload }) => payload,
 })
-
-// const filter = (state = '', { type, payload }) => {
-//     switch (type) {
-//         case types.CHANGE_FILTER:
-//             return payload;
-
-//         default:
-//             return state;
-//     }
-// }
 
 export default combineReducers({
     items,
