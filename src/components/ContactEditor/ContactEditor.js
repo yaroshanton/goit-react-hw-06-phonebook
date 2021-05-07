@@ -2,67 +2,67 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import './ContactEditor.css';
 import { connect } from 'react-redux';
-import contactsActions from '../../redux/contacts/contacts-actions';
+import contactsOperations from '../../redux/contacts/contacts-operations';
 
 class ContactEditor extends Component {
-    static = {
-        onAddContact: PropTypes.func.isRequired,
-    }
+  static = {
+    onAddContact: PropTypes.func.isRequired,
+  };
 
-    state = {
-        name: '',
-        number: ''
-    }
+  state = {
+    name: '',
+    number: ''
+  };
 
-    handleSubmit = (e) => {
-        e.preventDefault();
+  handleSubmit = (e) => {
+    e.preventDefault();
 
-        this.props.onAddContact(this.state)
-        this.setState({
-            name: '',
-            number: ''
-        })
-    }
+    this.props.onAddContact(this.state);
+    this.setState({
+      name: '',
+      number: ''
+    });
+  };
 
-    handleChange = (e) => {
-        const { name, value } = e.target
+  handleChange = (e) => {
+    const { name, value } = e.target;
 
-        this.setState({
-            [name]: value,
-        })
-    }
+    this.setState({
+      [name]: value,
+    });
+  };
 
-    render() {
-        const { name, number } = this.state
-        return (
-            <div className="contactForm" >
-                <form onSubmit={this.handleSubmit} >
-                    <label><p>Name</p>
-                        <input
-                            type="text"
-                            value={name}
-                            onChange={this.handleChange}
-                            name="name"
-                        />
-                    </label>
-                    <label><p>Number</p>
-                        <input
-                            type="number"
-                            value={number}
-                            onChange={this.handleChange}
-                            name="number"
-                        />
-                    </label>
-                    <button className="buttonForm" type="submit">Add contact</button>
-                </form>
-            </div>
-        )
-    }
+  render() {
+    const { name, number } = this.state;
+    return (
+      <div className="contactForm" >
+        <form onSubmit={this.handleSubmit} >
+          <label><p>Name</p>
+            <input
+              type="text"
+              value={name}
+              onChange={this.handleChange}
+              name="name"
+            />
+          </label>
+          <label><p>Number</p>
+            <input
+              type="number"
+              value={number}
+              onChange={this.handleChange}
+              name="number"
+            />
+          </label>
+          <button className="buttonForm" type="submit">Add contact</button>
+        </form>
+      </div>
+    );
+  }
 
 }
 
 const mapDispatchToProps = dispatch => ({
-    onAddContact: (text) => dispatch(contactsActions.addContact(text))
-})
+  onAddContact: (text) => dispatch(contactsOperations.addContact(text))
+});
 
-export default connect(null, mapDispatchToProps)(ContactEditor)
+export default connect(null, mapDispatchToProps)(ContactEditor);
