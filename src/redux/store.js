@@ -1,6 +1,6 @@
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 import contactReducer from './contacts/contact-reducer';
-import logger from 'redux-logger';
+// import logger from 'redux-logger';
 import {
   FLUSH,
   REHYDRATE,
@@ -22,7 +22,7 @@ const middleware = [
     },
   }),
   // myMiddleware,
-  logger,
+  // logger,
 ];
 
 const store = configureStore({
