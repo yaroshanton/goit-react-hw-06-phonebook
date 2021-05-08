@@ -1,19 +1,14 @@
 {
   "contacts": [
     {
-      "name": "dada",
-      "number": "111",
+      "name": "вв",
+      "number": "1",
       "id": 1
     },
     {
-      "name": "dsds",
-      "number": "",
-      "id": 3
-    },
-    {
-      "name": "dada",
-      "number": "111",
-      "id": 4
+      "name": "111",
+      "number": "34",
+      "id": 2
     }
   ]
 }
